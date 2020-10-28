@@ -6,7 +6,7 @@
 
 using System;
 
-namespace KeyValueStore
+namespace praxis
 {
     public delegate ReadOnlySpan<byte> ObjectToMemory<in T>(T instance);
 }

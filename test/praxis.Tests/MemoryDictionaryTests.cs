@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace KeyValueStore.Tests
+namespace praxis.Tests
 {
     public class MemoryDictionaryTests
     {

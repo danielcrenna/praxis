@@ -10,7 +10,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using LightningDB;
 
-namespace KeyValueStore
+namespace praxis
 {
     public abstract class LightningDataStore : IDisposable
     {

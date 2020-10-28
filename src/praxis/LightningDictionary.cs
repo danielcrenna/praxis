@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LightningDB;
 
-namespace KeyValueStore
+namespace praxis
 {
     public sealed class LightningDictionary<TKey, TValue> : LightningDataStore,
         IDictionarySlim<TKey, TValue>,
@@ -34,24 +34,6 @@ namespace KeyValueStore
             Init(path);
         }
 
-        #region IDictionarySlim<TKey, TValue>
-
-        public TValue this[TKey key]
-        {
-            get => Get(key);
-            set => Set(key, value, false);
-        }
-
-        public bool ContainsKey(TKey key) => Exists(key);
-
-        public void Add(TKey key, TValue value) => Set(key, value, true);
-
-        public bool Remove(TKey key) => DeleteByKey(key);
-
-        public bool TryGetValue(TKey key, out TValue value) => TryGetByKey(key, out value);
-
-        #endregion
-
         #region IEnumerable<out T>
 
         public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
@@ -64,7 +46,40 @@ namespace KeyValueStore
 
         #region IEnumerable
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        #endregion
+
+        #region IDictionarySlim<TKey, TValue>
+
+        public TValue this[TKey key]
+        {
+            get => Get(key);
+            set => Set(key, value, false);
+        }
+
+        public bool ContainsKey(TKey key)
+        {
+            return Exists(key);
+        }
+
+        public void Add(TKey key, TValue value)
+        {
+            Set(key, value, true);
+        }
+
+        public bool Remove(TKey key)
+        {
+            return DeleteByKey(key);
+        }
+
+        public bool TryGetValue(TKey key, out TValue value)
+        {
+            return TryGetByKey(key, out value);
+        }
 
         #endregion
 
@@ -74,7 +89,10 @@ namespace KeyValueStore
 
         public bool IsReadOnly => false;
 
-        public void Add(KeyValuePair<TKey, TValue> item) => Add(item.Key, item.Value);
+        public void Add(KeyValuePair<TKey, TValue> item)
+        {
+            Add(item.Key, item.Value);
+        }
 
         public bool Contains(KeyValuePair<TKey, TValue> item)
         {

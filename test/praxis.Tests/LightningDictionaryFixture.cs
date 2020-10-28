@@ -5,10 +5,9 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 using System;
-using System.Collections.Generic;
 using System.Text;
 
-namespace KeyValueStore.Tests
+namespace praxis.Tests
 {
     public class LightningDictionaryFixture : IDisposable
     {
@@ -23,16 +22,6 @@ namespace KeyValueStore.Tests
             );
         }
 
-        private static string BytesToString(ReadOnlySpan<byte> bytes)
-        {
-            return bytes.Length == 0 ? default : Encoding.UTF8.GetString(bytes);
-        }
-
-        private static byte[] StringToBytes(string k)
-        {
-            return k == default ? default : Encoding.UTF8.GetBytes(k);
-        }
-
         public LightningDictionary<string, string> Value { get; }
 
         public void Dispose()
@@ -45,6 +34,16 @@ namespace KeyValueStore.Tests
             {
                 Value.Dispose();
             }
+        }
+
+        private static string BytesToString(ReadOnlySpan<byte> bytes)
+        {
+            return bytes.Length == 0 ? default : Encoding.UTF8.GetString(bytes);
+        }
+
+        private static byte[] StringToBytes(string k)
+        {
+            return k == default ? default : Encoding.UTF8.GetBytes(k);
         }
     }
 }

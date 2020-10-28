@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-namespace KeyValueStore
+namespace praxis
 {
     public sealed class MemoryDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IDictionarySlim<TKey, TValue>
     {

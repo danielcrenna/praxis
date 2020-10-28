@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyValueStore", "KeyValueStore\KeyValueStore.csproj", "{7CE312C8-DB44-40B2-B855-390ECA5FD437}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{94FCE8A0-FF56-47C9-A072-0E7DC1FDD9A9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		praxis.sln.DotSettings = praxis.sln.DotSettings
+		README.md = README.md
+		THIRD-PARTY-NOTICES.txt = THIRD-PARTY-NOTICES.txt
+	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyValueStore.Tests", "KeyValueStore.Tests\KeyValueStore.Tests.csproj", "{B741A839-FB12-499C-B50C-0C17118CC385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "praxis", "src\praxis\praxis.csproj", "{448F0FC3-B30B-4C9B-A3BE-9B5E7455A662}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "praxis.Tests", "test\praxis.Tests\praxis.Tests.csproj", "{2F328FFF-4881-4AE0-9759-E744B6214B45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +23,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7CE312C8-DB44-40B2-B855-390ECA5FD437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CE312C8-DB44-40B2-B855-390ECA5FD437}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CE312C8-DB44-40B2-B855-390ECA5FD437}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CE312C8-DB44-40B2-B855-390ECA5FD437}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B741A839-FB12-499C-B50C-0C17118CC385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B741A839-FB12-499C-B50C-0C17118CC385}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B741A839-FB12-499C-B50C-0C17118CC385}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B741A839-FB12-499C-B50C-0C17118CC385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448F0FC3-B30B-4C9B-A3BE-9B5E7455A662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448F0FC3-B30B-4C9B-A3BE-9B5E7455A662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448F0FC3-B30B-4C9B-A3BE-9B5E7455A662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448F0FC3-B30B-4C9B-A3BE-9B5E7455A662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F328FFF-4881-4AE0-9759-E744B6214B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F328FFF-4881-4AE0-9759-E744B6214B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F328FFF-4881-4AE0-9759-E744B6214B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F328FFF-4881-4AE0-9759-E744B6214B45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
