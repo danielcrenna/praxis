@@ -1,0 +1,40 @@
+name: PR Checks
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      DOTNET_NOLOGO: true
+    steps:
+    - uses: actions/checkout@v2
+      with: 
+        submodules: 'recursive'
+      
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+
+    - name: Install coverage tool
+      run: dotnet tool install --global dotnet-reportgenerator-globaltool     
+
+    - name: Install server dependencies
+      run: dotnet restore
+            
+    - name: Build
+      run: dotnet build ./src/praxis/praxis.csproj --configuration Release --no-restore
+      
+    - name: Test
+      run: dotnet test ./test/praxis.Tests/praxis.Tests.csproj --no-restore --verbosity normal --collect:"XPlat Code Coverage" -p:LibraryRestore=false
+
+    - name: Coverage Report
+      run: ~/.dotnet/tools/reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:coverage-reports"
+        
+    - name: Upload Coverage
+      uses: actions/upload-artifact@master
+      with:
+        name: Coverage
+        path: coverage-reports
