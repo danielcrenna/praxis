@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 		LICENSE = LICENSE
 		praxis.sln.DotSettings = praxis.sln.DotSettings
 		README.md = README.md
@@ -16,6 +17,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "praxis", "src\praxis\praxis.csproj", "{448F0FC3-B30B-4C9B-A3BE-9B5E7455A662}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "praxis.Tests", "test\praxis.Tests\praxis.Tests.csproj", "{2F328FFF-4881-4AE0-9759-E744B6214B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "praxis.Benchmarks", "praxis.Benchmarks\praxis.Benchmarks.csproj", "{8B2BFE28-C68B-4195-9423-9BF75A278BDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +34,10 @@ Global
 		{2F328FFF-4881-4AE0-9759-E744B6214B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F328FFF-4881-4AE0-9759-E744B6214B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F328FFF-4881-4AE0-9759-E744B6214B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B2BFE28-C68B-4195-9423-9BF75A278BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B2BFE28-C68B-4195-9423-9BF75A278BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B2BFE28-C68B-4195-9423-9BF75A278BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2BFE28-C68B-4195-9423-9BF75A278BDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

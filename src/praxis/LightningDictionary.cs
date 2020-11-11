@@ -11,7 +11,7 @@ using LightningDB;
 
 namespace praxis
 {
-    public sealed class LightningDictionary<TKey, TValue> : LightningDataStore,
+    public class LightningDictionary<TKey, TValue> : LightningDataStore,
         IDictionarySlim<TKey, TValue>,
         IDictionary<TKey, TValue>
     {
@@ -233,7 +233,7 @@ namespace praxis
             foreach (var (k, _) in cursor.AsEnumerable())
                 keys.Add(_memoryToKey(k.AsSpan()));
 
-            return keys;
+            return keys.AsReadOnly(); // FIXME: allocation
         }
 
         private ICollection<TValue> StreamValues()
@@ -247,7 +247,7 @@ namespace praxis
             foreach (var (_, v) in cursor.AsEnumerable())
                 values.Add(_memoryToValue(v.AsSpan()));
 
-            return values;
+            return values.AsReadOnly(); // FIXME: allocation
         }
 
         private IEnumerable<KeyValuePair<TKey, TValue>> StreamKeyValuePairs()

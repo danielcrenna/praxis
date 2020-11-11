@@ -62,7 +62,7 @@ namespace praxis
             }
         }
 
-        public long GetLength()
+        protected long GetLength()
         {
             using var tx = Env.Value.BeginTransaction(TransactionBeginFlags.ReadOnly);
             using var db = tx.OpenDatabase(configuration: Config);

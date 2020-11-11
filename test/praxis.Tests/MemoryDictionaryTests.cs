@@ -15,7 +15,7 @@ namespace praxis.Tests
         [Fact]
         public void Collection_Add_DoesNotCheckValue()
         {
-            var dictionary = new MemoryDictionary<string, string> {{"foo", "bar"}};
+            var dictionary = new DictionarySlim<string, string> {{"foo", "bar"}};
 
             // System.ArgumentException : An item with the same key has already been added. Key: foo
             Assert.Throws<ArgumentException>(() =>
@@ -30,7 +30,7 @@ namespace praxis.Tests
         [Fact]
         public void Collection_Contains_ChecksValue_WhenNotNull()
         {
-            var dictionary = new MemoryDictionary<string, string> {{"foo", "bar"}};
+            var dictionary = new DictionarySlim<string, string> {{"foo", "bar"}};
             var collection = (ICollection<KeyValuePair<string, string>>) dictionary;
 
             Assert.True(collection.Contains(new KeyValuePair<string, string>("foo", "bar")));
@@ -40,12 +40,12 @@ namespace praxis.Tests
         [Fact]
         public void Collection_Contains_ChecksValue_WhenNull()
         {
-            var withValue = new MemoryDictionary<string, string> {{"foo", "bar"}};
+            var withValue = new DictionarySlim<string, string> {{"foo", "bar"}};
             var withValueCollection = (ICollection<KeyValuePair<string, string>>) withValue;
             Assert.True(withValueCollection.Contains(new KeyValuePair<string, string>("foo", "bar")));
             Assert.False(withValueCollection.Contains(new KeyValuePair<string, string>("foo", null)));
 
-            var withoutValue = new MemoryDictionary<string, string> {{"foo", null}};
+            var withoutValue = new DictionarySlim<string, string> {{"foo", null}};
             var withoutValueCollection = (ICollection<KeyValuePair<string, string>>) withoutValue;
             Assert.True(withoutValueCollection.Contains(new KeyValuePair<string, string>("foo", null)));
             Assert.False(withoutValueCollection.Contains(new KeyValuePair<string, string>("foo", "bar")));
@@ -54,7 +54,7 @@ namespace praxis.Tests
         [Fact]
         public void Collection_Remove_ChecksValue()
         {
-            var dictionary = new MemoryDictionary<string, string> {{"foo", "bar"}};
+            var dictionary = new DictionarySlim<string, string> {{"foo", "bar"}};
             var collection = (ICollection<KeyValuePair<string, string>>) dictionary;
 
             Assert.False(collection.Remove(new KeyValuePair<string, string>("foo", "baz")));
@@ -64,7 +64,7 @@ namespace praxis.Tests
         [Fact]
         public void Dictionary_Add_SameKey()
         {
-            var dictionary = new MemoryDictionary<string, string> {{"foo", "bar"}};
+            var dictionary = new DictionarySlim<string, string> {{"foo", "bar"}};
 
             // System.ArgumentException : An item with the same key has already been added. Key: foo
             Assert.Throws<ArgumentException>(() => dictionary.Add("foo", "bar"));
